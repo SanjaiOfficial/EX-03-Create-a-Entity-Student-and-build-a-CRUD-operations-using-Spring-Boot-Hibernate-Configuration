@@ -41,6 +41,7 @@ DELETE /students/{id} → Delete student
 ##PROGRAM CODE
 
 ### pom.xml
+```
 <dependencies>
     <!-- Spring Boot Web -->
     <dependency>
@@ -61,15 +62,18 @@ DELETE /students/{id} → Delete student
         <scope>runtime</scope>
     </dependency>
 </dependencies>
+```
  ### application.properties
-
+```
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
 spring.datasource.password=
 spring.jpa.hibernate.ddl-auto=update
 spring.h2.console.enabled=true
+```
 ### Student.java
+```
 package com.example.demo.model;
 import jakarta.persistence.*;
 @Entity
@@ -97,7 +101,9 @@ public class Student {
 
     public void setAge(int age) { this.age = age; }
 }
+```
 ### StudentRepository.java
+```
 package com.example.demo.repository;
 
 import com.example.demo.model.Student;
@@ -105,7 +111,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
 }
+```
 ### StudentController.java
+```
 package com.example.demo.controller;
 
 import com.example.demo.model.Student;
@@ -153,7 +161,9 @@ public class StudentController {
         return "Student with ID " + id + " deleted successfully!";
     }
 }
+```
 ### DemoApplication.java
+```
 package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
@@ -165,3 +175,10 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 }
+```
+## output:
+<img width="1151" height="616" alt="image" src="https://github.com/user-attachments/assets/7f9796ad-3735-435c-8e45-70c29bc4c542" />
+
+## Result:
+The Spring Boot application that performs CRUD operations on a Student entity using Spring Data JPA (Hibernate) executed successfully.
+
